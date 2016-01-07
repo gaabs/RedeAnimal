@@ -14,9 +14,9 @@ class BootStrap {
 
         SecUserRole.create testUser, adminRole, true
 
-        assert SecUser.count() == 1
-        assert SecRole.count() == 2
-        assert SecUserRole.count() == 1
+//        assert SecUser.count() == 1
+//        assert SecRole.count() == 2
+//        assert SecUserRole.count() == 1
 
         def estado = new Estado(nome: "Pernambuco").save()
         def cidade = new Cidade(nome: "Recife")
