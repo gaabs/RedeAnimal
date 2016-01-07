@@ -137,4 +137,4 @@ grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.logout.postOnly = false
 
 grails.plugin.databasesession.enabled = false
-grails.plugins.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
+grails.plugin.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
