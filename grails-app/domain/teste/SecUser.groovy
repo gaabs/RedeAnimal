@@ -5,7 +5,7 @@ import groovy.transform.ToString
 
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
-class User implements Serializable {
+class SecUser implements Serializable {
 
 	private static final long serialVersionUID = 1
 
@@ -18,14 +18,14 @@ class User implements Serializable {
 	boolean accountLocked
 	boolean passwordExpired
 
-	User(String username, String password) {
+	SecUser(String username, String password) {
 		this()
 		this.username = username
 		this.password = password
 	}
 
-	Set<Role> getAuthorities() {
-		UserRole.findAllByUser(this)*.role
+	Set<SecRole> getAuthorities() {
+		SecUserRole.findAllByUser(this)*.role
 	}
 
 	def beforeInsert() {

@@ -5,13 +5,13 @@ import groovy.transform.ToString
 
 @EqualsAndHashCode(includes='authority')
 @ToString(includes='authority', includeNames=true, includePackage=false)
-class Role implements Serializable {
+class SecRole implements Serializable {
 
 	private static final long serialVersionUID = 1
 
 	String authority
 
-	Role(String authority) {
+	SecRole(String authority) {
 		this()
 		this.authority = authority
 	}

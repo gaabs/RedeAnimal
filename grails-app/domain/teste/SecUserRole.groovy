@@ -6,14 +6,14 @@ import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 @ToString(cache=true, includeNames=true, includePackage=false)
-class UserRole implements Serializable {
+class SecUserRole implements Serializable {
 
 	private static final long serialVersionUID = 1
 
-	User user
-	Role role
+	SecUser user
+	SecRole role
 
-	UserRole(User u, Role r) {
+	SecUserRole(SecUser u, SecRole r) {
 		this()
 		user = u
 		role = r
@@ -21,7 +21,7 @@ class UserRole implements Serializable {
 
 	@Override
 	boolean equals(other) {
-		if (!(other instanceof UserRole)) {
+		if (!(other instanceof SecUserRole)) {
 			return false
 		}
 
@@ -36,7 +36,7 @@ class UserRole implements Serializable {
 		builder.toHashCode()
 	}
 
-	static UserRole get(long userId, long roleId) {
+	static SecUserRole get(long userId, long roleId) {
 		criteriaFor(userId, roleId).get()
 	}
 
@@ -45,50 +45,50 @@ class UserRole implements Serializable {
 	}
 
 	private static DetachedCriteria criteriaFor(long userId, long roleId) {
-		UserRole.where {
-			user == User.load(userId) &&
-			role == Role.load(roleId)
+		SecUserRole.where {
+			user == SecUser.load(userId) &&
+			role == SecRole.load(roleId)
 		}
 	}
 
-	static UserRole create(User user, Role role, boolean flush = false) {
-		def instance = new UserRole(user: user, role: role)
+	static SecUserRole create(SecUser user, SecRole role, boolean flush = false) {
+		def instance = new SecUserRole(user: user, role: role)
 		instance.save(flush: flush, insert: true)
 		instance
 	}
 
-	static boolean remove(User u, Role r, boolean flush = false) {
+	static boolean remove(SecUser u, SecRole r, boolean flush = false) {
 		if (u == null || r == null) return false
 
-		int rowCount = UserRole.where { user == u && role == r }.deleteAll()
+		int rowCount = SecUserRole.where { user == u && role == r }.deleteAll()
 
-		if (flush) { UserRole.withSession { it.flush() } }
+		if (flush) { SecUserRole.withSession { it.flush() } }
 
 		rowCount
 	}
 
-	static void removeAll(User u, boolean flush = false) {
+	static void removeAll(SecUser u, boolean flush = false) {
 		if (u == null) return
 
-		UserRole.where { user == u }.deleteAll()
+		SecUserRole.where { user == u }.deleteAll()
 
-		if (flush) { UserRole.withSession { it.flush() } }
+		if (flush) { SecUserRole.withSession { it.flush() } }
 	}
 
-	static void removeAll(Role r, boolean flush = false) {
+	static void removeAll(SecRole r, boolean flush = false) {
 		if (r == null) return
 
-		UserRole.where { role == r }.deleteAll()
+		SecUserRole.where { role == r }.deleteAll()
 
-		if (flush) { UserRole.withSession { it.flush() } }
+		if (flush) { SecUserRole.withSession { it.flush() } }
 	}
 
 	static constraints = {
-		role validator: { Role r, UserRole ur ->
+		role validator: { SecRole r, SecUserRole ur ->
 			if (ur.user == null || ur.user.id == null) return
 			boolean existing = false
-			UserRole.withNewSession {
-				existing = UserRole.exists(ur.user.id, r.id)
+			SecUserRole.withNewSession {
+				existing = SecUserRole.exists(ur.user.id, r.id)
 			}
 			if (existing) {
 				return 'userRole.exists'
