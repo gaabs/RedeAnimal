@@ -14,7 +14,7 @@ class Animal {
     String deficiência
     String observações
 
-    //static belongsTo = [usuário: Usuario]
+    static belongsTo = [usuário: Usuario]
 
 
     static constraints = {
