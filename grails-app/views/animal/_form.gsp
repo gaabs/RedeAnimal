@@ -1,14 +1,34 @@
 <%@ page import="teste.Animal" %>
 
 
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'estado', 'error')} required">
+	<label for="estado">
+		<g:message code="animal.estado.label" default="Estado" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:selectPrimary id="state" name="state"
+					 domain='teste.Estado'
+					 searchField='nome'
+					 collectField='id'
+
+					 domain2='teste.Cidade'
+					 bindid="estado.id"
+					 searchField2='nome'
+					 collectField2='id'
+
+					 noSelection="['': 'Please choose Estado']"
+					 setId="cidade"
+					 value='1'
+					 secondaryValue='2'
+	/>
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'cidade', 'error')} required">
 	<label for="cidade">
 		<g:message code="animal.cidade.label" default="Cidade" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="cidade" name="cidade.id" from="${teste.Cidade.list()}" optionKey="id" required="" value="${animalInstance?.cidade?.id}" class="many-to-one"/>
-
+	<g:select name="cidade" id="cidade" optionKey="id" optionValue="nome" from="[]" required="required" noSelection="['': 'Please choose estado']" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'deficiência', 'error')} required">
@@ -26,15 +46,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" required="" value="${animalInstance?.espécie?.name()}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'estado', 'error')} required">
-	<label for="estado">
-		<g:message code="animal.estado.label" default="Estado" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="estado" name="estado.id" from="${teste.Estado.list()}" optionKey="id" required="" value="${animalInstance?.estado?.id}" class="many-to-one"/>
 
 </div>
 
