@@ -135,3 +135,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
 grails.plugin.springsecurity.logout.postOnly = false
+
+grails.plugin.databasesession.enabled = false
+grails.plugins.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
