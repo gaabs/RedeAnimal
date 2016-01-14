@@ -41,6 +41,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${usuarioAbrigoInstance?.email}">
+				<li class="fieldcontain">
+					<span id="email-label" class="property-label"><g:message code="usuarioAbrigo.email.label" default="Email" /></span>
+					
+						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${usuarioAbrigoInstance}" field="email"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuarioAbrigoInstance?.foto}">
+				<li class="fieldcontain">
+					<span id="foto-label" class="property-label"><g:message code="usuarioAbrigo.foto.label" default="Foto" /></span>
+					
+						<span class="property-value" aria-labelledby="foto-label"><g:fieldValue bean="${usuarioAbrigoInstance}" field="foto"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${usuarioAbrigoInstance?.accountExpired}">
 				<li class="fieldcontain">
 					<span id="accountExpired-label" class="property-label"><g:message code="usuarioAbrigo.accountExpired.label" default="Account Expired" /></span>
@@ -79,15 +97,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioAbrigoInstance?.email}">
-				<li class="fieldcontain">
-					<span id="email-label" class="property-label"><g:message code="usuarioAbrigo.email.label" default="Email" /></span>
-					
-						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${usuarioAbrigoInstance}" field="email"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${usuarioAbrigoInstance?.enabled}">
 				<li class="fieldcontain">
 					<span id="enabled-label" class="property-label"><g:message code="usuarioAbrigo.enabled.label" default="Enabled" /></span>
@@ -102,15 +111,6 @@
 					<span id="endereco-label" class="property-label"><g:message code="usuarioAbrigo.endereco.label" default="Endereco" /></span>
 					
 						<span class="property-value" aria-labelledby="endereco-label"><g:fieldValue bean="${usuarioAbrigoInstance}" field="endereco"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${usuarioAbrigoInstance?.foto}">
-				<li class="fieldcontain">
-					<span id="foto-label" class="property-label"><g:message code="usuarioAbrigo.foto.label" default="Foto" /></span>
-					
-						<span class="property-value" aria-labelledby="foto-label"><g:fieldValue bean="${usuarioAbrigoInstance}" field="foto"/></span>
 					
 				</li>
 				</g:if>
