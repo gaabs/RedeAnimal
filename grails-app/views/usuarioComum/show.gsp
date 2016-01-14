@@ -41,6 +41,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${usuarioComumInstance?.email}">
+				<li class="fieldcontain">
+					<span id="email-label" class="property-label"><g:message code="usuarioComum.email.label" default="Email" /></span>
+					
+						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${usuarioComumInstance}" field="email"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuarioComumInstance?.foto}">
+				<li class="fieldcontain">
+					<span id="foto-label" class="property-label"><g:message code="usuarioComum.foto.label" default="Foto" /></span>
+					
+						<span class="property-value" aria-labelledby="foto-label"><g:fieldValue bean="${usuarioComumInstance}" field="foto"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${usuarioComumInstance?.accountExpired}">
 				<li class="fieldcontain">
 					<span id="accountExpired-label" class="property-label"><g:message code="usuarioComum.accountExpired.label" default="Account Expired" /></span>
@@ -79,15 +97,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioComumInstance?.email}">
-				<li class="fieldcontain">
-					<span id="email-label" class="property-label"><g:message code="usuarioComum.email.label" default="Email" /></span>
-					
-						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${usuarioComumInstance}" field="email"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${usuarioComumInstance?.enabled}">
 				<li class="fieldcontain">
 					<span id="enabled-label" class="property-label"><g:message code="usuarioComum.enabled.label" default="Enabled" /></span>
@@ -106,15 +115,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioComumInstance?.foto}">
-				<li class="fieldcontain">
-					<span id="foto-label" class="property-label"><g:message code="usuarioComum.foto.label" default="Foto" /></span>
-					
-						<span class="property-value" aria-labelledby="foto-label"><g:fieldValue bean="${usuarioComumInstance}" field="foto"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${usuarioComumInstance?.passwordExpired}">
 				<li class="fieldcontain">
 					<span id="passwordExpired-label" class="property-label"><g:message code="usuarioComum.passwordExpired.label" default="Password Expired" /></span>
@@ -124,14 +124,14 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioComumInstance?.reputacao}">
+				%{--<g:if test="${usuarioComumInstance?.reputacao}">--}%
 				<li class="fieldcontain">
 					<span id="reputacao-label" class="property-label"><g:message code="usuarioComum.reputacao.label" default="Reputacao" /></span>
 					
 						<span class="property-value" aria-labelledby="reputacao-label"><g:fieldValue bean="${usuarioComumInstance}" field="reputacao"/></span>
 					
 				</li>
-				</g:if>
+				%{--</g:if>--}%
 			
 				<g:if test="${usuarioComumInstance?.telefone}">
 				<li class="fieldcontain">

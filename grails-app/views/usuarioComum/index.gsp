@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="password" title="${message(code: 'usuarioComum.password.label', default: 'Password')}" />
 					
+						<g:sortableColumn property="email" title="${message(code: 'usuarioComum.email.label', default: 'Email')}" />
+					
+						<g:sortableColumn property="foto" title="${message(code: 'usuarioComum.foto.label', default: 'Foto')}" />
+					
 						<g:sortableColumn property="accountExpired" title="${message(code: 'usuarioComum.accountExpired.label', default: 'Account Expired')}" />
 					
 						<g:sortableColumn property="accountLocked" title="${message(code: 'usuarioComum.accountLocked.label', default: 'Account Locked')}" />
-					
-						<g:sortableColumn property="cpf" title="${message(code: 'usuarioComum.cpf.label', default: 'Cpf')}" />
-					
-						<g:sortableColumn property="email" title="${message(code: 'usuarioComum.email.label', default: 'Email')}" />
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: usuarioComumInstance, field: "password")}</td>
 					
+						<td>${fieldValue(bean: usuarioComumInstance, field: "email")}</td>
+					
+						<td>${fieldValue(bean: usuarioComumInstance, field: "foto")}</td>
+					
 						<td><g:formatBoolean boolean="${usuarioComumInstance.accountExpired}" /></td>
 					
 						<td><g:formatBoolean boolean="${usuarioComumInstance.accountLocked}" /></td>
-					
-						<td>${fieldValue(bean: usuarioComumInstance, field: "cpf")}</td>
-					
-						<td>${fieldValue(bean: usuarioComumInstance, field: "email")}</td>
 					
 					</tr>
 				</g:each>

@@ -6,5 +6,6 @@ class Cidade {
     static belongsTo = [estado: Estado]
 
     static constraints = {
+        nome unique: true, blank: false
     }
 }

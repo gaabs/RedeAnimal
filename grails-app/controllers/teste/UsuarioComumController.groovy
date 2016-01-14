@@ -37,7 +37,7 @@ class UsuarioComumController {
         usuarioComumInstance.save flush: true
 
         def roleUser = SecRole.findByAuthority('ROLE_USER')
-        SecUserRole.create usuarioAbrigoInstance, roleUser, true
+        SecUserRole.create usuarioComumInstance, roleUser, true
 
         request.withFormat {
             form multipartForm {

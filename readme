@@ -1,0 +1,10 @@
+# Grails run on specific port
+-Dgrails.server.port.http=8090
+
+# Clear heroku database
+heroku pg:reset DATABASE_URL
+
+# Manual heroku update
+git push heroku master
+
+

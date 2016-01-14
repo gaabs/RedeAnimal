@@ -9,7 +9,7 @@ class Animal {
     Cidade cidade
     int idade
     Porte porte
-    String vermifugação
+    boolean vermifugação
     boolean esterilizado
     String deficiência
     String observações
@@ -18,5 +18,7 @@ class Animal {
 
 
     static constraints = {
+        idade min: 0
+
     }
 }
