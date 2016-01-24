@@ -1,6 +1,9 @@
 package teste
 
 import grails.plugin.springsecurity.annotation.Secured
+import org.hibernate.criterion.Restrictions
+
+import java.util.regex.Pattern
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -15,6 +18,18 @@ class AnimalController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Animal.list(params), model: [animalInstanceCount: Animal.count()]
+    }
+
+    def filterList() {
+
+        def criteria = Animal.createCriteria()
+        def list = criteria.list {
+            if (params?.nome){
+                ilike("nome","%${params.nome}%")
+            }
+        }
+
+        render view:'index', model: [animalInstanceList: list]
     }
 
     def show(Animal animalInstance) {

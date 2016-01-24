@@ -16,6 +16,10 @@
 			</ul>
 		</div>
 		<div id="list-animal" class="content scaffold-list" role="main">
+			<g:form action="filterList">
+				Nome: <g:textField name="nome" value="${nome}"></g:textField>
+				<g:submitButton name="submit" value="Search"></g:submitButton>
+			</g:form>
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -23,6 +27,8 @@
 			<table>
 			<thead>
 					<tr>
+					
+						<g:sortableColumn property="idade" title="${message(code: 'animal.idade.label', default: 'Idade')}" />
 					
 						<th><g:message code="animal.cidade.label" default="Cidade" /></th>
 					
@@ -34,15 +40,15 @@
 					
 						<g:sortableColumn property="esterilizado" title="${message(code: 'animal.esterilizado.label', default: 'Esterilizado')}" />
 					
-						<g:sortableColumn property="idade" title="${message(code: 'animal.idade.label', default: 'Idade')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${animalInstanceList}" status="i" var="animalInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${animalInstance.id}">${fieldValue(bean: animalInstance, field: "cidade")}</g:link></td>
+						<td><g:link action="show" id="${animalInstance.id}">${fieldValue(bean: animalInstance, field: "idade")}</g:link></td>
+					
+						<td>${fieldValue(bean: animalInstance, field: "cidade")}</td>
 					
 						<td>${fieldValue(bean: animalInstance, field: "deficiência")}</td>
 					
@@ -51,8 +57,6 @@
 						<td>${fieldValue(bean: animalInstance, field: "estado")}</td>
 					
 						<td><g:formatBoolean boolean="${animalInstance.esterilizado}" /></td>
-					
-						<td>${fieldValue(bean: animalInstance, field: "idade")}</td>
 					
 					</tr>
 				</g:each>

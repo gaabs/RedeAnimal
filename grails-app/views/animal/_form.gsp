@@ -6,7 +6,7 @@
 		<g:message code="animal.estado.label" default="Estado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:selectPrimary id="state" name="state"
+	<g:selectPrimary id="estado" name="estado"
 					 domain='teste.Estado'
 					 searchField='nome'
 					 collectField='id'
@@ -52,7 +52,7 @@
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'esterilizado', 'error')} ">
 	<label for="esterilizado">
 		<g:message code="animal.esterilizado.label" default="Esterilizado" />
-		
+
 	</label>
 	<g:checkBox name="esterilizado" value="${animalInstance?.esterilizado}" />
 
@@ -120,4 +120,17 @@
 	<g:textField name="vermifugação" required="" value="${animalInstance?.vermifugação}"/>
 
 </div>
+
+
+
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'usuário', 'error')} required">
+	<label for="usuário">
+		<g:message code="animal.usuário.label" default="Usuário" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="usuário" name="usuário.id" from="${teste.Usuario.list()}" optionKey="id" required="" value="${animalInstance?.usuário?.id}" class="many-to-one"/>
+
+</div>
+
+
 
