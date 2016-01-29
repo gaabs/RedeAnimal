@@ -16,10 +16,14 @@
 			</ul>
 		</div>
 		<div id="list-animal" class="content scaffold-list" role="main">
-			<g:form action="filterList">
-				Nome: <g:textField name="nome" value="${nome}"></g:textField>
-				<g:submitButton name="submit" value="Search"></g:submitButton>
-			</g:form>
+			<div>
+				<g:form action="filterList">
+					Nome: <g:textField name="nome" value="${nome}"></g:textField>
+					Espécie: <g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" required="" value="${animalInstance?.espécie?.name()}" />
+					Raça: <g:textField name="raça" value="${raça}"></g:textField>
+					<g:submitButton name="submit" value="Pesquisar"></g:submitButton>
+				</g:form>
+			</div>
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -27,7 +31,9 @@
 			<table>
 			<thead>
 					<tr>
-					
+
+						<g:sortableColumn property="nome" title="${message(code: 'animal.nome.label', default: 'Nome')}" />
+
 						<g:sortableColumn property="idade" title="${message(code: 'animal.idade.label', default: 'Idade')}" />
 					
 						<th><g:message code="animal.cidade.label" default="Cidade" /></th>
@@ -45,16 +51,16 @@
 				<tbody>
 				<g:each in="${animalInstanceList}" status="i" var="animalInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${animalInstance.id}">${fieldValue(bean: animalInstance, field: "idade")}</g:link></td>
-					
-						<td>${fieldValue(bean: animalInstance, field: "cidade")}</td>
-					
+
+						<td><g:link action="show" id="${animalInstance.id}">${fieldValue(bean: animalInstance, field: "nome")}</g:link></td>
+						<td>${fieldValue(bean: animalInstance, field: "idade")}</td>
+						<td><g:fieldValue bean="${animalInstance.cidade}" field="nome" /></td>
+
 						<td>${fieldValue(bean: animalInstance, field: "deficiência")}</td>
 					
 						<td>${fieldValue(bean: animalInstance, field: "espécie")}</td>
-					
-						<td>${fieldValue(bean: animalInstance, field: "estado")}</td>
+
+						<td><g:fieldValue bean="${animalInstance.estado}" field="nome" /></td>
 					
 						<td><g:formatBoolean boolean="${animalInstance.esterilizado}" /></td>
 					

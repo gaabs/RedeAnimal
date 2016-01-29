@@ -8,7 +8,7 @@ import java.util.regex.Pattern
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Secured(['ROLE_ADMIN','ROLE_USER'])
+//@Secured(['ROLE_ADMIN','ROLE_USER'])
 @Transactional(readOnly = true)
 
 class AnimalController {
@@ -21,11 +21,18 @@ class AnimalController {
     }
 
     def filterList() {
-
         def criteria = Animal.createCriteria()
         def list = criteria.list {
             if (params?.nome){
                 ilike("nome","%${params.nome}%")
+            }
+
+            if (params?.espécie){
+                eq("espécie", Especie.valueOf(params.espécie))
+            }
+
+            if (params?.raça){
+                ilike("raça","%${params.raça}%")
             }
         }
 
