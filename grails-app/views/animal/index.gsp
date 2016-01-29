@@ -19,7 +19,7 @@
 			<div>
 				<g:form action="filterList">
 					Nome: <g:textField name="nome" value="${nome}"></g:textField>
-					Espécie: <g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" required="" value="${animalInstance?.espécie?.name()}" />
+					Espécie: <g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" value="${animalInstance?.espécie?.name()} " noSelection="['': 'Todas']" />
 					Raça: <g:textField name="raça" value="${raça}"></g:textField>
 					<g:submitButton name="submit" value="Pesquisar"></g:submitButton>
 				</g:form>
