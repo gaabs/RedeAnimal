@@ -22,6 +22,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list animal">
+
+				<g:if test="${animalInstance?.nome}">
+					<li class="fieldcontain">
+						<span id="nome-label" class="property-label"><g:message code="animal.nome.label" default="Nome" /></span>
+
+						<span class="property-value" aria-labelledby="nome-label"><g:fieldValue bean="${animalInstance}" field="nome"/></span>
+
+					</li>
+				</g:if>
 			
 				<g:if test="${animalInstance?.idade}">
 				<li class="fieldcontain">
@@ -31,25 +40,17 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animalInstance?.cidade}">
-				<li class="fieldcontain">
-					<span id="cidade-label" class="property-label"><g:message code="animal.cidade.label" default="Cidade" /></span>
-					
-						<span class="property-value" aria-labelledby="cidade-label"><g:link controller="cidade" action="show" id="${animalInstance?.cidade?.id}">${animalInstance?.cidade?.encodeAsHTML()}</g:link></span>
-					
-				</li>
+
+
+				<g:if test="${animalInstance?.sexo}">
+					<li class="fieldcontain">
+						<span id="sexo-label" class="property-label"><g:message code="animal.sexo.label" default="Sexo" /></span>
+
+						<span class="property-value" aria-labelledby="sexo-label"><g:fieldValue bean="${animalInstance}" field="sexo"/></span>
+
+					</li>
 				</g:if>
-			
-				<g:if test="${animalInstance?.deficiência}">
-				<li class="fieldcontain">
-					<span id="deficiência-label" class="property-label"><g:message code="animal.deficiência.label" default="Deficiência" /></span>
-					
-						<span class="property-value" aria-labelledby="deficiência-label"><g:fieldValue bean="${animalInstance}" field="deficiência"/></span>
-					
-				</li>
-				</g:if>
-			
+
 				<g:if test="${animalInstance?.espécie}">
 				<li class="fieldcontain">
 					<span id="espécie-label" class="property-label"><g:message code="animal.espécie.label" default="Espécie" /></span>
@@ -58,7 +59,25 @@
 					
 				</li>
 				</g:if>
-			
+
+				<g:if test="${animalInstance?.raça}">
+					<li class="fieldcontain">
+						<span id="raça-label" class="property-label"><g:message code="animal.raça.label" default="Raça" /></span>
+
+						<span class="property-value" aria-labelledby="raça-label"><g:fieldValue bean="${animalInstance}" field="raça"/></span>
+
+					</li>
+				</g:if>
+
+				<g:if test="${animalInstance?.porte}">
+					<li class="fieldcontain">
+						<span id="porte-label" class="property-label"><g:message code="animal.porte.label" default="Porte" /></span>
+
+						<span class="property-value" aria-labelledby="porte-label"><g:fieldValue bean="${animalInstance}" field="porte"/></span>
+
+					</li>
+				</g:if>
+
 				<g:if test="${animalInstance?.estado}">
 				<li class="fieldcontain">
 					<span id="estado-label" class="property-label"><g:message code="animal.estado.label" default="Estado" /></span>
@@ -67,25 +86,40 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animalInstance?.esterilizado}">
+
+				<g:if test="${animalInstance?.cidade}">
+					<li class="fieldcontain">
+						<span id="cidade-label" class="property-label"><g:message code="animal.cidade.label" default="Cidade" /></span>
+
+						<span class="property-value" aria-labelledby="cidade-label"><g:link controller="cidade" action="show" id="${animalInstance?.cidade?.id}">${animalInstance?.cidade?.encodeAsHTML()}</g:link></span>
+
+					</li>
+				</g:if>
+
+
+				<li class="fieldcontain">
+					<span id="vermifugado-label" class="property-label"><g:message code="animal.vermifugação.label" default="Vermifugado" /></span>
+
+					<span class="property-value" aria-labelledby="vermifugado-label"><g:formatBoolean boolean="${animalInstance?.vermifugado}" /></span>
+
+				</li>
+
 				<li class="fieldcontain">
 					<span id="esterilizado-label" class="property-label"><g:message code="animal.esterilizado.label" default="Esterilizado" /></span>
-					
+
 						<span class="property-value" aria-labelledby="esterilizado-label"><g:formatBoolean boolean="${animalInstance?.esterilizado}" /></span>
-					
+
 				</li>
+
+				<g:if test="${animalInstance?.deficiência}">
+					<li class="fieldcontain">
+						<span id="deficiência-label" class="property-label"><g:message code="animal.deficiência.label" default="Deficiência" /></span>
+
+						<span class="property-value" aria-labelledby="deficiência-label"><g:fieldValue bean="${animalInstance}" field="deficiência"/></span>
+
+					</li>
 				</g:if>
-			
-				<g:if test="${animalInstance?.nome}">
-				<li class="fieldcontain">
-					<span id="nome-label" class="property-label"><g:message code="animal.nome.label" default="Nome" /></span>
-					
-						<span class="property-value" aria-labelledby="nome-label"><g:fieldValue bean="${animalInstance}" field="nome"/></span>
-					
-				</li>
-				</g:if>
-			
+
 				<g:if test="${animalInstance?.observações}">
 				<li class="fieldcontain">
 					<span id="observações-label" class="property-label"><g:message code="animal.observações.label" default="Observações" /></span>
@@ -94,34 +128,11 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animalInstance?.porte}">
-				<li class="fieldcontain">
-					<span id="porte-label" class="property-label"><g:message code="animal.porte.label" default="Porte" /></span>
-					
-						<span class="property-value" aria-labelledby="porte-label"><g:fieldValue bean="${animalInstance}" field="porte"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${animalInstance?.raça}">
-				<li class="fieldcontain">
-					<span id="raça-label" class="property-label"><g:message code="animal.raça.label" default="Raça" /></span>
-					
-						<span class="property-value" aria-labelledby="raça-label"><g:fieldValue bean="${animalInstance}" field="raça"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${animalInstance?.sexo}">
-				<li class="fieldcontain">
-					<span id="sexo-label" class="property-label"><g:message code="animal.sexo.label" default="Sexo" /></span>
-					
-						<span class="property-value" aria-labelledby="sexo-label"><g:fieldValue bean="${animalInstance}" field="sexo"/></span>
-					
-				</li>
-				</g:if>
-			
+
+
+
+
+
 				<g:if test="${animalInstance?.usuário}">
 				<li class="fieldcontain">
 					<span id="usuário-label" class="property-label"><g:message code="animal.usuário.label" default="Usuário" /></span>
@@ -130,16 +141,8 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animalInstance?.vermifugação}">
-				<li class="fieldcontain">
-					<span id="vermifugação-label" class="property-label"><g:message code="animal.vermifugação.label" default="Vermifugação" /></span>
-					
-						<span class="property-value" aria-labelledby="vermifugação-label"><g:formatBoolean boolean="${animalInstance?.vermifugação}" /></span>
-					
-				</li>
-				</g:if>
-			
+
+
 			</ol>
 			<g:form url="[resource:animalInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

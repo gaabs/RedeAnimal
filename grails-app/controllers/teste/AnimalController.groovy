@@ -34,6 +34,14 @@ class AnimalController {
             if (params?.raça){
                 ilike("raça","%${params.raça}%")
             }
+
+            if (params?.sexo){
+                eq("sexo", Sexo.valueOf(params.sexo))
+            }
+
+            if (params?.vermifugação){
+                eq("vermifugado", Boolean.valueOf(params.vermifugação))
+            }
         }
 
         render view:'index', model: [animalInstanceList: list]

@@ -19,8 +19,10 @@
 			<div>
 				<g:form action="filterList">
 					Nome: <g:textField name="nome" value="${nome}"></g:textField>
-					Espécie: <g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" value="${animalInstance?.espécie?.name()} " noSelection="['': 'Todas']" />
+					Espécie: <g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" value="${animalInstance?.espécie?.name()} " noSelection="['': 'Não importa']" />
 					Raça: <g:textField name="raça" value="${raça}"></g:textField>
+					Sexo: <g:select name="sexo" from="${teste.Sexo?.values()}" keys="${teste.Sexo.values()*.name()}" value="${animalInstance?.sexo?.name()} " noSelection="['': 'Não importa']" />
+					Vermifugado: <g:select name="vermifugação" from="${["Sim","Não"]}" keys="${[true,false]}" noSelection="['': 'Não importa']" />
 					<g:submitButton name="submit" value="Pesquisar"></g:submitButton>
 				</g:form>
 			</div>
@@ -33,19 +35,18 @@
 					<tr>
 
 						<g:sortableColumn property="nome" title="${message(code: 'animal.nome.label', default: 'Nome')}" />
-
 						<g:sortableColumn property="idade" title="${message(code: 'animal.idade.label', default: 'Idade')}" />
-					
-						<th><g:message code="animal.cidade.label" default="Cidade" /></th>
-					
-						<g:sortableColumn property="deficiência" title="${message(code: 'animal.deficiência.label', default: 'Deficiência')}" />
-					
+						<g:sortableColumn property="sexo" title="${message(code: 'animal.sexo.label', default: 'Sexo')}" />
 						<g:sortableColumn property="espécie" title="${message(code: 'animal.espécie.label', default: 'Espécie')}" />
-					
-						<th><g:message code="animal.estado.label" default="Estado" /></th>
-					
+						<g:sortableColumn property="raça" title="${message(code: 'animal.raça.label', default: 'Raça')}" />
+
+						<g:sortableColumn property="estado" title="${message(code: 'animal.estado.label', default: 'Estado')}" />
+						<g:sortableColumn property="cidade" title="${message(code: 'animal.cidade.label', default: 'Cidade')}" />
+
+						<g:sortableColumn property="vermifugado" title="${message(code: 'animal.vermifugado.label', default: 'Vermifugado')}" />
 						<g:sortableColumn property="esterilizado" title="${message(code: 'animal.esterilizado.label', default: 'Esterilizado')}" />
-					
+						<g:sortableColumn property="deficiência" title="${message(code: 'animal.deficiência.label', default: 'Deficiência')}" />
+
 					</tr>
 				</thead>
 				<tbody>
@@ -54,16 +55,17 @@
 
 						<td><g:link action="show" id="${animalInstance.id}">${fieldValue(bean: animalInstance, field: "nome")}</g:link></td>
 						<td>${fieldValue(bean: animalInstance, field: "idade")}</td>
-						<td><g:fieldValue bean="${animalInstance.cidade}" field="nome" /></td>
-
-						<td>${fieldValue(bean: animalInstance, field: "deficiência")}</td>
-					
+						<td>${fieldValue(bean: animalInstance, field: "sexo")}</td>
 						<td>${fieldValue(bean: animalInstance, field: "espécie")}</td>
+						<td>${fieldValue(bean: animalInstance, field: "raça")}</td>
 
 						<td><g:fieldValue bean="${animalInstance.estado}" field="nome" /></td>
-					
+						<td><g:fieldValue bean="${animalInstance.cidade}" field="nome" /></td>
+
+						<td><g:formatBoolean boolean="${animalInstance.vermifugado}" /></td>
 						<td><g:formatBoolean boolean="${animalInstance.esterilizado}" /></td>
-					
+						<td>${fieldValue(bean: animalInstance, field: "deficiência")}</td>
+
 					</tr>
 				</g:each>
 				</tbody>

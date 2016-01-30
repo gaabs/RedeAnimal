@@ -1,5 +1,59 @@
 <%@ page import="teste.Animal" %>
 
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'nome', 'error')} required">
+	<label for="nome">
+		<g:message code="animal.nome.label" default="Nome" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="nome" required="" value="${animalInstance?.nome}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'idade', 'error')} required">
+	<label for="idade">
+		<g:message code="animal.idade.label" default="Idade" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="idade" type="number" value="${animalInstance.idade}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'sexo', 'error')} required">
+	<label for="sexo">
+		<g:message code="animal.sexo.label" default="Sexo" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="sexo" from="${teste.Sexo?.values()}" keys="${teste.Sexo.values()*.name()}" required="" value="${animalInstance?.sexo?.name()}" />
+
+</div>
+
+
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'espécie', 'error')} required">
+	<label for="espécie">
+		<g:message code="animal.espécie.label" default="Espécie" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" required="" value="${animalInstance?.espécie?.name()}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'raça', 'error')} required">
+	<label for="raça">
+		<g:message code="animal.raça.label" default="Raça" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="raça" required="" value="${animalInstance?.raça}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'porte', 'error')} required">
+	<label for="porte">
+		<g:message code="animal.porte.label" default="Porte" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="porte" from="${teste.Porte?.values()}" keys="${teste.Porte.values()*.name()}" required="" value="${animalInstance?.porte?.name()}" />
+
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'estado', 'error')} required">
 	<label for="estado">
@@ -40,14 +94,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'espécie', 'error')} required">
-	<label for="espécie">
-		<g:message code="animal.espécie.label" default="Espécie" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select name="espécie" from="${teste.Especie?.values()}" keys="${teste.Especie.values()*.name()}" required="" value="${animalInstance?.espécie?.name()}" />
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'esterilizado', 'error')} ">
 	<label for="esterilizado">
@@ -58,23 +104,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'idade', 'error')} required">
-	<label for="idade">
-		<g:message code="animal.idade.label" default="Idade" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="idade" type="number" value="${animalInstance.idade}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'nome', 'error')} required">
-	<label for="nome">
-		<g:message code="animal.nome.label" default="Nome" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="nome" required="" value="${animalInstance?.nome}"/>
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'observações', 'error')} required">
 	<label for="observações">
@@ -85,34 +114,8 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'porte', 'error')} required">
-	<label for="porte">
-		<g:message code="animal.porte.label" default="Porte" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select name="porte" from="${teste.Porte?.values()}" keys="${teste.Porte.values()*.name()}" required="" value="${animalInstance?.porte?.name()}" />
 
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'raça', 'error')} required">
-	<label for="raça">
-		<g:message code="animal.raça.label" default="Raça" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="raça" required="" value="${animalInstance?.raça}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'sexo', 'error')} required">
-	<label for="sexo">
-		<g:message code="animal.sexo.label" default="Sexo" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select name="sexo" from="${teste.Sexo?.values()}" keys="${teste.Sexo.values()*.name()}" required="" value="${animalInstance?.sexo?.name()}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'vermifugação', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'vermifugado', 'error')} required">
 	<label for="vermifugação">
 		<g:message code="animal.vermifugação.label" default="Vermifugação" />
 		<span class="required-indicator">*</span>

@@ -38,7 +38,7 @@ class BootStrap {
 
 
         // para testes Testes
-        UsuarioAbrigo usuario = new UsuarioAbrigo(username: "a", password: "a", email: "a", cnpj: "a", endereco: "a", telefone: "a")
+        UsuarioAbrigo usuario = new UsuarioAbrigo(username: "AbrigoAnimal", password: "a", email: "a", cnpj: "a", endereco: "a", telefone: "a")
         usuario.save()
 
         Animal animal;
@@ -54,7 +54,7 @@ class BootStrap {
                 porte: Porte.Grande,
                 raça: "a",
                 sexo: Sexo.Feminino,
-                vermifugação: false,
+                vermifugado: false,
                 usuário: usuario
         )
         animal.save()
@@ -70,7 +70,7 @@ class BootStrap {
                 porte: Porte.Grande,
                 raça: "b",
                 sexo: Sexo.Feminino,
-                vermifugação: false,
+                vermifugado: false,
                 usuário: usuario
         )
         animal.save()

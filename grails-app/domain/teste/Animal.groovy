@@ -5,11 +5,11 @@ class Animal {
     Sexo sexo
     Especie espécie
     String raça
-    Estado estado
-    Cidade cidade
     int idade
     Porte porte
-    boolean vermifugação
+    Estado estado
+    Cidade cidade
+    boolean vermifugado
     boolean esterilizado
     String deficiência
     String observações
