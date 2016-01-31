@@ -23,6 +23,24 @@
 					Raça: <g:textField name="raça" value="${raça}"></g:textField>
 					Sexo: <g:select name="sexo" from="${teste.Sexo?.values()}" keys="${teste.Sexo.values()*.name()}" value="${animalInstance?.sexo?.name()} " noSelection="['': 'Não importa']" />
 					Vermifugado: <g:select name="vermifugação" from="${["Sim","Não"]}" keys="${[true,false]}" noSelection="['': 'Não importa']" />
+					Esterilizado: <g:select name="esterilizado" from="${["Sim","Não"]}" keys="${[true,false]}" noSelection="['': 'Não importa']" />
+					Estado: <g:selectPrimary id="estado" name="estado"
+									 domain='teste.Estado'
+									 searchField='nome'
+									 collectField='id'
+
+									 domain2='teste.Cidade'
+									 bindid="estado.id"
+									 searchField2='nome'
+									 collectField2='id'
+
+									 noSelection="['': 'Não importa']"
+									 setId="cidade"
+									 value='2'
+									 secondaryValue='1'
+					/>
+					Cidade: <g:select name="cidade" id="cidade" optionKey="id" optionValue="nome" from="[]" required="" noSelection="['': 'Não importa']" />
+
 					<g:submitButton name="submit" value="Pesquisar"></g:submitButton>
 				</g:form>
 			</div>

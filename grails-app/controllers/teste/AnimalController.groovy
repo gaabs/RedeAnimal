@@ -22,6 +22,8 @@ class AnimalController {
 
     def filterList() {
         def criteria = Animal.createCriteria()
+        println params
+        println params.estado
         def list = criteria.list {
             if (params?.nome){
                 ilike("nome","%${params.nome}%")
@@ -39,8 +41,20 @@ class AnimalController {
                 eq("sexo", Sexo.valueOf(params.sexo))
             }
 
+            if (params?.estado){
+                eq("estado.id", Long.valueOf(params.estado))
+            }
+
+            if (params?.cidade){
+                eq("cidade.id", Long.valueOf(params.cidade))
+            }
+
             if (params?.vermifugação){
                 eq("vermifugado", Boolean.valueOf(params.vermifugação))
+            }
+
+            if (params?.esterilizado){
+                eq("esterilizado", Boolean.valueOf(params.esterilizado))
             }
         }
 
