@@ -49,8 +49,8 @@ class AnimalController {
                 eq("cidade.id", Long.valueOf(params.cidade))
             }
 
-            if (params?.vermifugação){
-                eq("vermifugado", Boolean.valueOf(params.vermifugação))
+            if (params?.vermifugado){
+                eq("vermifugado", Boolean.valueOf(params.vermifugado))
             }
 
             if (params?.esterilizado){

@@ -116,11 +116,11 @@
 
 
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'vermifugado', 'error')} required">
-	<label for="vermifugação">
-		<g:message code="animal.vermifugação.label" default="Vermifugação" />
+	<label for="vermifugado">
+		<g:message code="animal.vermifugação.label" default="Vermifugado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="vermifugação" required="" value="${animalInstance?.vermifugação}"/>
+	<g:textField name="vermifugado" required="" value="${animalInstance?.vermifugado}"/>
 
 </div>
 
